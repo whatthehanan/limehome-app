@@ -66,7 +66,7 @@ export default function HomePage() {
             <ReservationList />
         </Col>
         <Modal
-            title={<span style={{ fontWeight: "bold", fontSize: "16px" }}>Book your suite at limehome</span>}
+            title={<span style={{ fontWeight: "bold", fontSize: "22px" }}>Book your suite at limehome</span>}
             visible={showForm}
             onCancel={handleCancel}
             footer={<ModalFooter />}
