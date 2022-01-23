@@ -16,7 +16,7 @@ export default function ReservationForm(props: ReservationFormProps) {
             </Col>
             <Col offset={2} span={11}>
                 <Form.Item label="Number of Guests" name="numGuests" rules={[{ required: true, message: "Number of guests is required" }]}>
-                    <Input type="number" placeholder="Number of Guests" />
+                    <Input min={1} type="number" placeholder="Number of Guests" />
                 </Form.Item>
             </Col>
         </Row>
