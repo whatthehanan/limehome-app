@@ -4,6 +4,7 @@ const { Title } = Typography
 import { PlusSquareOutlined } from "@ant-design/icons"
 import styles from "./home.module.less"
 import cn from "classnames"
+import { ReservationList } from "../../modules/reservation/components";
 
 export default function HomePage() {
     return <Row style={{ width: "100%" }}>
@@ -15,14 +16,14 @@ export default function HomePage() {
                     </Title>
                 </Col>
                 <Col>
-                    <Button ghost className={styles.createReservationBtn}>
+                    <Button ghost className={cn(styles.createReservationBtn)}>
                         <PlusSquareOutlined /> Create Reservation
                     </Button>
                 </Col>
             </Row>
         </Col >
-        <Col span={24}>
-            Reservations List
+        <Col span={24} style={{ marginTop: "2rem" }}>
+            <ReservationList />
         </Col>
     </Row >
 }

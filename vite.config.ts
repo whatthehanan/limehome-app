@@ -12,7 +12,10 @@ export default defineConfig({
           "layout-header-background": "#f7f1e9",
           "btn-default-ghost-border": "#4f1c07",
           "btn-default-ghost-color": "#4f1c07",
-          "text-color": "#4b4b4d"
+          "text-color": "#4b4b4d",
+          "table-bg": "#f7f1e9",
+          "table-header-bg": "#f7f1e9",
+          "table-border-color": "#4f1c07"
         }
       }
     }
