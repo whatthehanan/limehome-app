@@ -15,7 +15,12 @@ export default defineConfig({
           "text-color": "#4b4b4d",
           "table-bg": "#f7f1e9",
           "table-header-bg": "#f7f1e9",
-          "table-border-color": "#4f1c07"
+          "table-border-color": "#4f1c07",
+          "modal-content-bg": "#f7f1e9",
+          "modal-header-bg": "#f7f1e9",
+          "modal-close-color": "#4f1c07",
+          "modal-heading-color": "#4f1c07",
+          "modal-header-border-color-split": "#4f1c07"
         }
       }
     }

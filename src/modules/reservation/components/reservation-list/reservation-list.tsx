@@ -12,7 +12,7 @@ const columns = [
         title: "Guests",
         key: 'numGuests',
         dataIndex: "numGuests",
-        render: (numGuests: number) => <span style={{ textAlign: "center", display: "flex", justifyContent: "center", fontSize: "18px" }}>{numGuests}</span>,
+        render: (numGuests: number) => <span style={{ fontSize: "18px" }}>{numGuests}</span>,
         width: 250
 
     },
