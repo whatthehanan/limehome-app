@@ -9,7 +9,10 @@ export default defineConfig({
       less: {
         javascriptEnabled: true,
         modifyVars: {
-          "layout-header-background": "#4d6447",
+          "layout-header-background": "#f7f1e9",
+          "btn-default-ghost-border": "#4f1c07",
+          "btn-default-ghost-color": "#4f1c07",
+          "text-color": "#4b4b4d"
         }
       }
     }
