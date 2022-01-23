@@ -14,11 +14,14 @@ export default function HomePage() {
     const [showForm, setShowForm] = useState(false)
 
     const onSubmit = () => {
-        form.validateFields().then(() => {
-            form.submit();;
-        }).catch(err => {
-            alert("check form data")
-        })
+        form
+            .validateFields()
+            .then(_ => {
+                form.submit();
+            })
+            .catch(info => {
+                console.log('Validate Failed:', info);
+            });
     }
 
     const handleCancel = () => {
@@ -27,7 +30,8 @@ export default function HomePage() {
     }
 
     const handleSubmit = (values: any) => {
-        console.log(values)
+        console.log("handleSubmit", values)
+        form.resetFields();
     }
 
     const ModalFooter = () => {
@@ -67,7 +71,7 @@ export default function HomePage() {
             onCancel={handleCancel}
             footer={<ModalFooter />}
         >
-            <ReservationForm handleSubmit={handleSubmit} />
+            <ReservationForm handleSubmit={handleSubmit} formRef={form} />
         </Modal>
     </Row >
 }
