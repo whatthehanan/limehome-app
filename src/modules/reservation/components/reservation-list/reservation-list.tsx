@@ -57,8 +57,6 @@ interface ReservationListProps {
 
 export default function ReservationList({ data = [], isLoading = false }: ReservationListProps) {
 
-    console.log("Data", data)
-
     return <Row>
         <Table dataSource={data} columns={columns} style={{ width: "100%" }} bordered pagination={false} />
     </Row>;

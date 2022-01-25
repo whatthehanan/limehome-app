@@ -34,7 +34,6 @@ export default function HomePage() {
                 form.submit();
             })
             .catch(info => {
-                console.log('Validate Failed:', info);
             });
     }
 
@@ -44,7 +43,6 @@ export default function HomePage() {
     }
 
     const handleSubmit = async (values: any) => {
-        console.log("handleSubmit", values)
         values.checkInDate = values.stay[0];
         values.checkOutDate = values.stay[1];
         await mutate(values)
