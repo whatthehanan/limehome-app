@@ -3,7 +3,7 @@ const devApiConfig = {
 }
 
 const prodApiConfig = {
-    baseUrl: 'https://limehome.herokuapp.com/api/v1'
+    baseUrl: 'https://lime-home-api.herokuapp.com/api/v1'
 }
 
 const apiConfig = prodApiConfig;
