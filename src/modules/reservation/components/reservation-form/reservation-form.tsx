@@ -28,7 +28,7 @@ export default function ReservationForm(props: ReservationFormProps) {
                 </Form.Item>
             </Col>
             <Col offset={2} span={11}>
-                <Form.Item label="Last Name" name="lsatName" rules={[{ required: true, message: "Last name is required" }]}>
+                <Form.Item label="Last Name" name="lastName" rules={[{ required: true, message: "Last name is required" }]}>
                     <Input type="text" placeholder="Last Name" />
                 </Form.Item>
             </Col>

@@ -1,4 +1,4 @@
-import { Row, Col, Button, Modal, Form } from "antd";
+import { Row, Col, Button, Modal, Form, notification } from "antd";
 import { Typography } from "antd";
 const { Title } = Typography
 import { PlusSquareOutlined } from "@ant-design/icons"
@@ -6,8 +6,8 @@ import styles from "./home.module.less"
 import cn from "classnames"
 import { ReservationList, ReservationForm } from "../../modules/reservation/components";
 import { useState } from "react";
-import { useQuery } from "react-query";
-import { fetchReservations } from "../../modules/reservation/services/reservation-service";
+import { useMutation, useQuery } from "react-query";
+import { createReservation, fetchReservations } from "../../modules/reservation/services/reservation-service";
 
 
 
@@ -15,6 +15,17 @@ export default function HomePage() {
     const [form] = Form.useForm();
     const [showForm, setShowForm] = useState(false)
     const { data, isLoading } = useQuery(["reservations"], fetchReservations(1, 10))
+    const { mutate } = useMutation(createReservation, {
+        onSuccess: () => {
+            setShowForm(false)
+            form.resetFields();
+        },
+        onError: () => {
+            notification.error({
+                message: "Something went wrong!"
+            })
+        }
+    })
 
     const onSubmit = () => {
         form
@@ -32,9 +43,11 @@ export default function HomePage() {
         form.resetFields();
     }
 
-    const handleSubmit = (values: any) => {
+    const handleSubmit = async (values: any) => {
         console.log("handleSubmit", values)
-        form.resetFields();
+        values.checkInDate = values.stay[0];
+        values.checkOutDate = values.stay[1];
+        await mutate(values)
     }
 
     const ModalFooter = () => {

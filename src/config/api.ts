@@ -6,6 +6,6 @@ const prodApiConfig = {
     baseUrl: 'https://limehome.herokuapp.com/api/v1'
 }
 
-const apiConfig = devApiConfig;
+const apiConfig = prodApiConfig;
 
 export { apiConfig };
