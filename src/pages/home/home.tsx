@@ -14,10 +14,13 @@ import { createReservation, fetchReservations } from "../../modules/reservation/
 export default function HomePage() {
     const [form] = Form.useForm();
     const [showForm, setShowForm] = useState(false)
-    const { data, isLoading } = useQuery(["reservations"], fetchReservations(1, 10))
+    const { data, isLoading, refetch } = useQuery(["reservations"], fetchReservations(1, 10), {
+        refetchOnWindowFocus: true
+    })
     const { mutate } = useMutation(createReservation, {
         onSuccess: () => {
             setShowForm(false)
+            refetch();
             form.resetFields();
         },
         onError: () => {
