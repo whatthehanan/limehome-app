@@ -6,12 +6,15 @@ import styles from "./home.module.less"
 import cn from "classnames"
 import { ReservationList, ReservationForm } from "../../modules/reservation/components";
 import { useState } from "react";
+import { useQuery } from "react-query";
+import { fetchReservations } from "../../modules/reservation/services/reservation-service";
 
 
 
 export default function HomePage() {
     const [form] = Form.useForm();
     const [showForm, setShowForm] = useState(false)
+    const { data, isLoading } = useQuery(["reservations"], fetchReservations(1, 10))
 
     const onSubmit = () => {
         form
@@ -63,7 +66,7 @@ export default function HomePage() {
             </Row>
         </Col >
         <Col span={24} style={{ marginTop: "2rem" }}>
-            <ReservationList />
+            <ReservationList isLoading={isLoading} data={data} />
         </Col>
         <Modal
             title={<span style={{ fontWeight: "bold", fontSize: "22px" }}>Book your suite at limehome</span>}

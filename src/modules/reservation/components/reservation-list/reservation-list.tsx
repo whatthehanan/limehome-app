@@ -38,27 +38,27 @@ const columns = [
         title: "Stay",
         key: 'stay',
         width: 250,
-        render: (row: any) => `${row.checkInDate}-${row.checkOutDate}`
+        render: (row: any) => {
+            return (
+                <span>
+                    From: {new Date(row.checkInDate).toLocaleDateString()} {new Date(row.checkInDate).toLocaleTimeString()}
+                    <br />
+                    To: {new Date(row.checkOutDate).toLocaleDateString()} {new Date(row.checkInDate).toLocaleTimeString()}
+                </span>
+            )
+        }
     }
 ]
 
-const data = [
-    {
-        firstName: "John",
-        lastName: "Smith",
-        email: "john@smith.com",
-        phoneNumber: "4445557777",
-        numGuests: 2,
-        country: "Germany",
-        city: "Berlin",
-        postalCode: "56123",
-        streetAddress: "222333 peachtree street",
-        checkInDate: new Date().toLocaleDateString(),
-        checkOutDate: new Date().toLocaleDateString()
-    }
-]
+interface ReservationListProps {
+    data?: any
+    isLoading?: boolean
+}
 
-export default function ReservationList() {
+export default function ReservationList({ data = [], isLoading = false }: ReservationListProps) {
+
+    console.log("Data", data)
+
     return <Row>
         <Table dataSource={data} columns={columns} style={{ width: "100%" }} bordered pagination={false} />
     </Row>;

@@ -13,7 +13,7 @@ export default function CustomerInfo(props: CustomerInfoProps) {
     return (
         <Row justify='start'>
             <Col >
-                <Avatar style={{ textTransform: "capitalize", backgroundColor: "var(--secondary-900)" }} size={64}>{props.firstName.charAt(0)}{props.lastName.charAt(0)}</Avatar>
+                <Avatar style={{ textTransform: "uppercase", backgroundColor: "var(--secondary-900)" }} size={64}>{props.firstName.charAt(0)}{props.lastName.charAt(0)}</Avatar>
             </Col>
             <Col offset={2}>
                 <Row style={{ fontWeight: "bold" }}>
